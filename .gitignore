@@ -1,0 +1,13 @@
+/.atom/
+
+*.elc
+auto-save-list
+tramp
+*~
+\#*\#
+.cask
+ac-comphist.dat
+network-security.data
+elpa*
+.python-environments
+site-lisp*
