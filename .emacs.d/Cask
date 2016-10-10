@@ -41,5 +41,6 @@
 (depends-on "recentf-ext")
 (depends-on "sws-mode")
 (depends-on "jade-mode")
+(depends-on "lua-mode")
 (depends-on "coffee-mode")
 (depends-on "auto-complete")

@@ -18,7 +18,10 @@
 
 (global-set-key [(meta g)]	'goto-line)
 (global-set-key [(meta c )]	'count-lines-region)
-(global-set-key [(control c) (r)]	'eval-current-buffer)
+(define-key global-map (kbd "C-c C-r")     'eval-buffer)
+
+(setq-default indent-tabs-mode nil)
+
 
 ;;;
 ;;; Language
@@ -218,6 +221,10 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+;;;lua-modeの設定
+(require 'lua-mode)
+;; (add-to-list 'auto-mode-alist '("\\.lua\\'" . lua-mode))
+
 
 ;;helm
 (require 'helm-config)
@@ -238,8 +245,21 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-(define-key global-map (kbd "M-n")     'flycheck-next-error)
-(define-key global-map (kbd "M-p")     'flycheck-previous-error)
+(define-key global-map (kbd "C-c C-n")     'flycheck-next-error)
+(define-key global-map (kbd "C-c C-p")     'flycheck-previous-error)
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+  (append flycheck-disabled-checkers
+    '(javascript-jshint)))
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'js2-mode)
+(setq js2-include-browser-externs nil)
+(setq js2-mode-show-parse-errors nil)
+(setq js2-mode-show-strict-warnings nil)
+(setq js2-highlight-external-variables nil)
+(setq js2-include-jslint-globals nil)
+;; (setq flycheck-eslintrc "~/.eslintrc")
+(setq-default flycheck-temp-prefix ".")
 
 ;;markdown
 (require 'markdown-mode)
@@ -255,8 +275,6 @@
 (setq flycheck-flake8-maximum-line-length 200)
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
-;;reload
-(define-key global-map (kbd "C-c C-r")     'eval-buffer)
 
 ;;emmet-mode
 (require 'emmet-mode)
