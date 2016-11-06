@@ -33,7 +33,7 @@
 (set-buffer-file-coding-system 'utf-8)
 
 (set-default-coding-systems 'utf-8)
-(setq file-name-coding-system 'shift_jis)
+;; (setq file-name-coding-system 'shift_jis)
 ;;;
 ;;; Japanese Input Method
 ;;;
@@ -242,9 +242,10 @@
 (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
 
 ;;flycheck
+;; (eval-after-load 'flycheck
+;;   '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-
 (define-key global-map (kbd "C-c C-n")     'flycheck-next-error)
 (define-key global-map (kbd "C-c C-p")     'flycheck-previous-error)
 ;; disable jshint since we prefer eslint checking
