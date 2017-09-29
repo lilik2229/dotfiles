@@ -11,3 +11,5 @@ network-security.data
 elpa*
 .python-environments
 site-lisp*
+.emacs.d/recentf
+

@@ -36,7 +36,6 @@
 (depends-on "js2-mode")
 (depends-on "php-mode")
 (depends-on "markdown-mode")
-(depends-on "web-mode")
 (depends-on "gtags" :git "https://github.com/voins/gtags.git")
 (depends-on "recentf-ext")
 (depends-on "sws-mode")
@@ -44,3 +43,5 @@
 (depends-on "lua-mode")
 (depends-on "coffee-mode")
 (depends-on "auto-complete")
+(depends-on "typescript-mode")
+(depends-on "yaml-mode")

@@ -5,6 +5,7 @@
 
 ;; cask
 (require 'cask "~/.cask/cask.el")
+;;(require 'cask)
 (cask-initialize)
 
 ;;;
@@ -40,8 +41,8 @@
 
 ;; emacs-mozc
 
-(require 'mozc)
-(setq default-input-method "japanese-mozc")
+;(require 'mozc)
+;(setq default-input-method "japanese-mozc")
 
 ;;;
 ;;; highlight
@@ -195,10 +196,10 @@
 ;; ;; C-y で CLIPBOARD の内容をペースト(ヤンク)する
 ;; ;; クリップボードの内容を kill-ring に追加してからヤンクします
 ;; ;; kill-ring に新しい内容を追加するとそちらが優先されます
-(cond (window-system (global-set-key "\C-y" 'x-clipboard-yank)))
+;; (cond (window-system (global-set-key "\C-y" 'x-clipboard-yank)))
 
 ;;フォント
-(add-to-list 'default-frame-alist '(font . "ricty-16"))
+(add-to-list 'default-frame-alist '(font . "ricty-26"))
 
 ;;Jadeモード
 (require 'sws-mode)
@@ -235,6 +236,7 @@
 (define-key global-map (kbd "M-y")     'helm-show-kill-ring)
 (define-key global-map (kbd "C-c i")   'helm-imenu)
 (define-key global-map (kbd "C-x b")   'helm-buffers-list)
+(define-key global-map (kbd "C-x C-b")   'helm-buffers-list)
 
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
 (define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
@@ -270,6 +272,9 @@
 (add-hook 'python-mode-hook #'jedi:setup)
 ;; (setq jedi:complete-on-dot t)
 
+;;web-mode
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+
 ;;autopep8
 (require 'py-autopep8)
 (setq py-autopep8-options '("--max-line-length=200"))
@@ -286,6 +291,8 @@
 			 (setq emmet-indentation 2)))
 (define-key emmet-mode-keymap (kbd "C-j")     'emmet-expand-line)
 
+;; mac setting
+(mac-auto-ascii-mode 1)
 
 (provide 'common)
 ;;; common.el ends here
