@@ -294,6 +294,10 @@
 ;; mac setting
 (mac-auto-ascii-mode 1)
 
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x C-g") 'magit-status)
+
 (provide 'common)
 ;;; common.el ends here
 
