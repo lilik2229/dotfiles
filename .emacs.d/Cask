@@ -44,4 +44,8 @@
 (depends-on "coffee-mode")
 (depends-on "auto-complete")
 (depends-on "typescript-mode")
+(depends-on "tss")
+(depends-on "tide")
 (depends-on "yaml-mode")
+(depends-on "company")
+(depends-on "add-node-modules-path")
