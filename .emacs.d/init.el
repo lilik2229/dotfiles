@@ -16,6 +16,7 @@
 (load "~/.emacs.d/gtags.el")
 (load "~/.emacs.d/recentf-ext.el")
 (load "~/.emacs.d/js2-mode.el")
+(load "~/.emacs.d/html.el")
 (load "~/.emacs.d/helm.el")
 (load "~/.emacs.d/flycheck.el")
 (load "~/.emacs.d/company-mode.el")

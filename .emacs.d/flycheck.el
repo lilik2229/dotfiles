@@ -7,6 +7,7 @@
 
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
 (define-key global-map (kbd "C-c C-n")     'flycheck-next-error)
 (define-key global-map (kbd "C-c n")     'flycheck-next-error)
 (define-key global-map (kbd "C-c C-p")     'flycheck-previous-error)
